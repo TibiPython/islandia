@@ -1,0 +1,2253 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_f89751f4e8b13293b4a3cfae92e75b42 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+    <script src="https://cdn.jsdelivr.net/gh/ljagis/leaflet-measure@2.1.7/dist/leaflet-measure.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ljagis/leaflet-measure@2.1.7/dist/leaflet-measure.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_f89751f4e8b13293b4a3cfae92e75b42" ></div>
+        
+    
+<div style="position: fixed; bottom: 20px; left: 20px; z-index: 9999;
+     background: rgba(255,255,255,0.96); padding: 10px 12px; border: 1px solid #333; border-radius: 8px;
+     font-size: 12px; line-height: 1.35; max-width: 340px;">
+  <div style="font-weight:700; margin-bottom:6px;">Sur & Este de Islandia — Plan Maestro</div>
+  <div><b>Azul (número)</b>: Itinerario 15 puntos</div>
+  <div><b>🏠 Dorado</b>: Pueblos con servicios (resaltados)</div>
+  <div><b>⛽ Azul</b>: Gasolineras</div>
+  <div><b>🛒 Verde</b>: Supermercados</div>
+  <div><b>🍽️ Naranja</b>: Restaurantes</div>
+  <div><b>💧 Azul claro</b>: Lagos / Lagunas</div>
+  <div><b>⭐ Morado</b>: Sitios turísticos extra</div>
+  <div><b>🌍 Verde oscuro</b>: Sitios naturales destacados (con km y tiempo en popup)</div>
+</div>
+</body>
+<script>
+    
+    
+            var map_f89751f4e8b13293b4a3cfae92e75b42 = L.map(
+                "map_f89751f4e8b13293b4a3cfae92e75b42",
+                {
+                    center: [63.9, -19.0],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 6,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_6290f81f491b7436e9b13ec0ba32c7f3 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_f89751f4e8b13293b4a3cfae92e75b42);
+        
+    
+            var measure_control_4bd22d1de1d48f5ecd02c1d9c7020d82 = new L.Control.Measure(
+                {"position": "topright", "primaryAreaUnit": "sqmeters", "primaryLengthUnit": "kilometers", "secondaryAreaUnit": "acres", "secondaryLengthUnit": "miles"});
+            map_f89751f4e8b13293b4a3cfae92e75b42.addControl(measure_control_4bd22d1de1d48f5ecd02c1d9c7020d82);
+
+        
+    
+            var tile_layer_3908f8e5dc8b341376023812fee70393 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+            var mini_map_95ace2dd2d378f065c98744dbeaa76a1 = new L.Control.MiniMap(
+                tile_layer_3908f8e5dc8b341376023812fee70393,
+                {"autoToggleDisplay": false, "centerFixed": false, "collapsedHeight": 25, "collapsedWidth": 25, "height": 150, "minimized": false, "position": "bottomright", "toggleDisplay": true, "width": 150, "zoomAnimation": false, "zoomLevelOffset": -5}
+            );
+            map_f89751f4e8b13293b4a3cfae92e75b42.addControl(mini_map_95ace2dd2d378f065c98744dbeaa76a1);
+        
+    
+            var feature_group_95eacff8cc3a3151b20c55df9ce17bb0 = L.featureGroup(
+                {}
+            ).addTo(map_f89751f4e8b13293b4a3cfae92e75b42);
+        
+    
+            var marker_2b0f4e5beb0dfef79514a03a019f6466 = L.marker(
+                [64.1355, -21.8954],
+                {}
+            ).addTo(feature_group_95eacff8cc3a3151b20c55df9ce17bb0);
+        
+    
+            var div_icon_e08eb618d9ff42151706f5ed213b3f6d = L.divIcon({"className": "empty", "html": "\u003cdiv style=\u0027font-size:12pt; background:white; border:1px solid #000; padding:2px 6px; border-radius:6px;\u0027\u003e\u003cb\u003e1\u003c/b\u003e\u003c/div\u003e"});
+            marker_2b0f4e5beb0dfef79514a03a019f6466.setIcon(div_icon_e08eb618d9ff42151706f5ed213b3f6d);
+        
+    
+        var popup_904217f4312ddce01b4237a35b87225e = L.popup({"maxWidth": "100%"});
+
+        
+            var html_dcb17f589e151d387c9f0a0609845760 = $(`<div id="html_dcb17f589e151d387c9f0a0609845760" style="width: 100.0%; height: 100.0%;">1. Reikiavik</div>`)[0];
+            popup_904217f4312ddce01b4237a35b87225e.setContent(html_dcb17f589e151d387c9f0a0609845760);
+        
+
+        marker_2b0f4e5beb0dfef79514a03a019f6466.bindPopup(popup_904217f4312ddce01b4237a35b87225e)
+        ;
+
+        
+    
+    
+            marker_2b0f4e5beb0dfef79514a03a019f6466.bindTooltip(
+                `<div>
+                     1. Reikiavik
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_030435d7708f39e41b971ea253c9f5ab = L.marker(
+                [63.999, -21.189],
+                {}
+            ).addTo(feature_group_95eacff8cc3a3151b20c55df9ce17bb0);
+        
+    
+            var div_icon_8db17a127853011344fd28d6dd51c99d = L.divIcon({"className": "empty", "html": "\u003cdiv style=\u0027font-size:12pt; background:white; border:1px solid #000; padding:2px 6px; border-radius:6px;\u0027\u003e\u003cb\u003e2\u003c/b\u003e\u003c/div\u003e"});
+            marker_030435d7708f39e41b971ea253c9f5ab.setIcon(div_icon_8db17a127853011344fd28d6dd51c99d);
+        
+    
+        var popup_7288f6509237dd6bc060ccbb51bb0261 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_87896a10bc779fdd74a3aeb6a1f3afbc = $(`<div id="html_87896a10bc779fdd74a3aeb6a1f3afbc" style="width: 100.0%; height: 100.0%;">2. Hveragerði</div>`)[0];
+            popup_7288f6509237dd6bc060ccbb51bb0261.setContent(html_87896a10bc779fdd74a3aeb6a1f3afbc);
+        
+
+        marker_030435d7708f39e41b971ea253c9f5ab.bindPopup(popup_7288f6509237dd6bc060ccbb51bb0261)
+        ;
+
+        
+    
+    
+            marker_030435d7708f39e41b971ea253c9f5ab.bindTooltip(
+                `<div>
+                     2. Hveragerði
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9644de9e7c42bd21838f4f95e175e10b = L.marker(
+                [63.6156, -19.9926],
+                {}
+            ).addTo(feature_group_95eacff8cc3a3151b20c55df9ce17bb0);
+        
+    
+            var div_icon_ede712a6fb3249bc5491dfac2a15260f = L.divIcon({"className": "empty", "html": "\u003cdiv style=\u0027font-size:12pt; background:white; border:1px solid #000; padding:2px 6px; border-radius:6px;\u0027\u003e\u003cb\u003e3\u003c/b\u003e\u003c/div\u003e"});
+            marker_9644de9e7c42bd21838f4f95e175e10b.setIcon(div_icon_ede712a6fb3249bc5491dfac2a15260f);
+        
+    
+        var popup_c8ce2303d5da95cc8a09440f8db8e87d = L.popup({"maxWidth": "100%"});
+
+        
+            var html_db8b676a3a373e773bbd894617b99c73 = $(`<div id="html_db8b676a3a373e773bbd894617b99c73" style="width: 100.0%; height: 100.0%;">3. Seljalandsfoss</div>`)[0];
+            popup_c8ce2303d5da95cc8a09440f8db8e87d.setContent(html_db8b676a3a373e773bbd894617b99c73);
+        
+
+        marker_9644de9e7c42bd21838f4f95e175e10b.bindPopup(popup_c8ce2303d5da95cc8a09440f8db8e87d)
+        ;
+
+        
+    
+    
+            marker_9644de9e7c42bd21838f4f95e175e10b.bindTooltip(
+                `<div>
+                     3. Seljalandsfoss
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9eef1a9d46769999dc560b1d21715b76 = L.marker(
+                [63.62, -19.987],
+                {}
+            ).addTo(feature_group_95eacff8cc3a3151b20c55df9ce17bb0);
+        
+    
+            var div_icon_17014292cbd3f118e36c1eef45194299 = L.divIcon({"className": "empty", "html": "\u003cdiv style=\u0027font-size:12pt; background:white; border:1px solid #000; padding:2px 6px; border-radius:6px;\u0027\u003e\u003cb\u003e4\u003c/b\u003e\u003c/div\u003e"});
+            marker_9eef1a9d46769999dc560b1d21715b76.setIcon(div_icon_17014292cbd3f118e36c1eef45194299);
+        
+    
+        var popup_cf9d10154d153b7dd57fc023415e0de3 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_bdec4591b7d87d145320c483e8aef733 = $(`<div id="html_bdec4591b7d87d145320c483e8aef733" style="width: 100.0%; height: 100.0%;">4. Gljúfrabúi</div>`)[0];
+            popup_cf9d10154d153b7dd57fc023415e0de3.setContent(html_bdec4591b7d87d145320c483e8aef733);
+        
+
+        marker_9eef1a9d46769999dc560b1d21715b76.bindPopup(popup_cf9d10154d153b7dd57fc023415e0de3)
+        ;
+
+        
+    
+    
+            marker_9eef1a9d46769999dc560b1d21715b76.bindTooltip(
+                `<div>
+                     4. Gljúfrabúi
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ea0bbfaf6065e3099ff9bb9bdd297a2e = L.marker(
+                [63.5321, -19.511],
+                {}
+            ).addTo(feature_group_95eacff8cc3a3151b20c55df9ce17bb0);
+        
+    
+            var div_icon_cafee82b974a1a40a8a98a9904d23543 = L.divIcon({"className": "empty", "html": "\u003cdiv style=\u0027font-size:12pt; background:white; border:1px solid #000; padding:2px 6px; border-radius:6px;\u0027\u003e\u003cb\u003e5\u003c/b\u003e\u003c/div\u003e"});
+            marker_ea0bbfaf6065e3099ff9bb9bdd297a2e.setIcon(div_icon_cafee82b974a1a40a8a98a9904d23543);
+        
+    
+        var popup_361bfa0ad545ca959eafd9df084e3d6d = L.popup({"maxWidth": "100%"});
+
+        
+            var html_5e668b4ca95af66b00ea2f9b4521b79c = $(`<div id="html_5e668b4ca95af66b00ea2f9b4521b79c" style="width: 100.0%; height: 100.0%;">5. Skógafoss</div>`)[0];
+            popup_361bfa0ad545ca959eafd9df084e3d6d.setContent(html_5e668b4ca95af66b00ea2f9b4521b79c);
+        
+
+        marker_ea0bbfaf6065e3099ff9bb9bdd297a2e.bindPopup(popup_361bfa0ad545ca959eafd9df084e3d6d)
+        ;
+
+        
+    
+    
+            marker_ea0bbfaf6065e3099ff9bb9bdd297a2e.bindTooltip(
+                `<div>
+                     5. Skógafoss
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0586dc24408caf7fa17d54a0ac681285 = L.marker(
+                [63.524, -19.506],
+                {}
+            ).addTo(feature_group_95eacff8cc3a3151b20c55df9ce17bb0);
+        
+    
+            var div_icon_0691c9023cddded014678f75e72b30c0 = L.divIcon({"className": "empty", "html": "\u003cdiv style=\u0027font-size:12pt; background:white; border:1px solid #000; padding:2px 6px; border-radius:6px;\u0027\u003e\u003cb\u003e6\u003c/b\u003e\u003c/div\u003e"});
+            marker_0586dc24408caf7fa17d54a0ac681285.setIcon(div_icon_0691c9023cddded014678f75e72b30c0);
+        
+    
+        var popup_0934bc231cf6442cc9cedb7a11d67a67 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_17550ee5ce63a64204e1c2717aec8bea = $(`<div id="html_17550ee5ce63a64204e1c2717aec8bea" style="width: 100.0%; height: 100.0%;">6. Museo de Skógar</div>`)[0];
+            popup_0934bc231cf6442cc9cedb7a11d67a67.setContent(html_17550ee5ce63a64204e1c2717aec8bea);
+        
+
+        marker_0586dc24408caf7fa17d54a0ac681285.bindPopup(popup_0934bc231cf6442cc9cedb7a11d67a67)
+        ;
+
+        
+    
+    
+            marker_0586dc24408caf7fa17d54a0ac681285.bindTooltip(
+                `<div>
+                     6. Museo de Skógar
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_af17aafd52027edddae9b64c2d473967 = L.marker(
+                [63.4025, -19.1262],
+                {}
+            ).addTo(feature_group_95eacff8cc3a3151b20c55df9ce17bb0);
+        
+    
+            var div_icon_d4cba96ba714fb710c6e8d9bfd63be46 = L.divIcon({"className": "empty", "html": "\u003cdiv style=\u0027font-size:12pt; background:white; border:1px solid #000; padding:2px 6px; border-radius:6px;\u0027\u003e\u003cb\u003e7\u003c/b\u003e\u003c/div\u003e"});
+            marker_af17aafd52027edddae9b64c2d473967.setIcon(div_icon_d4cba96ba714fb710c6e8d9bfd63be46);
+        
+    
+        var popup_8c7dd1a66676a50049a0700d7a3958f4 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_d8c04405c19b04ccfedcceba922d3a6a = $(`<div id="html_d8c04405c19b04ccfedcceba922d3a6a" style="width: 100.0%; height: 100.0%;">7. Dyrhólaey</div>`)[0];
+            popup_8c7dd1a66676a50049a0700d7a3958f4.setContent(html_d8c04405c19b04ccfedcceba922d3a6a);
+        
+
+        marker_af17aafd52027edddae9b64c2d473967.bindPopup(popup_8c7dd1a66676a50049a0700d7a3958f4)
+        ;
+
+        
+    
+    
+            marker_af17aafd52027edddae9b64c2d473967.bindTooltip(
+                `<div>
+                     7. Dyrhólaey
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6c2eb7d3f454e42e96df9edae049ae02 = L.marker(
+                [63.4044, -19.0514],
+                {}
+            ).addTo(feature_group_95eacff8cc3a3151b20c55df9ce17bb0);
+        
+    
+            var div_icon_6516a7d5ec30fd557312add9fbacc71e = L.divIcon({"className": "empty", "html": "\u003cdiv style=\u0027font-size:12pt; background:white; border:1px solid #000; padding:2px 6px; border-radius:6px;\u0027\u003e\u003cb\u003e8\u003c/b\u003e\u003c/div\u003e"});
+            marker_6c2eb7d3f454e42e96df9edae049ae02.setIcon(div_icon_6516a7d5ec30fd557312add9fbacc71e);
+        
+    
+        var popup_eb9b26fa5ee81cb3105c4bb0ca5a23f3 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_f64d50e450d9c9f9c34c32dc64e10fe3 = $(`<div id="html_f64d50e450d9c9f9c34c32dc64e10fe3" style="width: 100.0%; height: 100.0%;">8. Playa negra Reynisfjara</div>`)[0];
+            popup_eb9b26fa5ee81cb3105c4bb0ca5a23f3.setContent(html_f64d50e450d9c9f9c34c32dc64e10fe3);
+        
+
+        marker_6c2eb7d3f454e42e96df9edae049ae02.bindPopup(popup_eb9b26fa5ee81cb3105c4bb0ca5a23f3)
+        ;
+
+        
+    
+    
+            marker_6c2eb7d3f454e42e96df9edae049ae02.bindTooltip(
+                `<div>
+                     8. Playa negra Reynisfjara
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_8446d8e7bfbdcb1a60f5eea895356c27 = L.marker(
+                [63.4186, -19.006],
+                {}
+            ).addTo(feature_group_95eacff8cc3a3151b20c55df9ce17bb0);
+        
+    
+            var div_icon_70709c3d7035eed391ed1bd3a45e5c6c = L.divIcon({"className": "empty", "html": "\u003cdiv style=\u0027font-size:12pt; background:white; border:1px solid #000; padding:2px 6px; border-radius:6px;\u0027\u003e\u003cb\u003e9\u003c/b\u003e\u003c/div\u003e"});
+            marker_8446d8e7bfbdcb1a60f5eea895356c27.setIcon(div_icon_70709c3d7035eed391ed1bd3a45e5c6c);
+        
+    
+        var popup_8e226c2150a8fa1db57deb1594b24e45 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_fbec03d7fbea238f64ff42e2ec6c0890 = $(`<div id="html_fbec03d7fbea238f64ff42e2ec6c0890" style="width: 100.0%; height: 100.0%;">9. Vík í Mýrdal</div>`)[0];
+            popup_8e226c2150a8fa1db57deb1594b24e45.setContent(html_fbec03d7fbea238f64ff42e2ec6c0890);
+        
+
+        marker_8446d8e7bfbdcb1a60f5eea895356c27.bindPopup(popup_8e226c2150a8fa1db57deb1594b24e45)
+        ;
+
+        
+    
+    
+            marker_8446d8e7bfbdcb1a60f5eea895356c27.bindTooltip(
+                `<div>
+                     9. Vík í Mýrdal
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_2f069a67dd1e98ed3bcdedc0f9dd9132 = L.marker(
+                [63.7712, -18.1726],
+                {}
+            ).addTo(feature_group_95eacff8cc3a3151b20c55df9ce17bb0);
+        
+    
+            var div_icon_4992775ebe14b4bc3bb2206c1439390d = L.divIcon({"className": "empty", "html": "\u003cdiv style=\u0027font-size:12pt; background:white; border:1px solid #000; padding:2px 6px; border-radius:6px;\u0027\u003e\u003cb\u003e10\u003c/b\u003e\u003c/div\u003e"});
+            marker_2f069a67dd1e98ed3bcdedc0f9dd9132.setIcon(div_icon_4992775ebe14b4bc3bb2206c1439390d);
+        
+    
+        var popup_c93ebc6d298984d1afef7cd92a50e317 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_70c5dc0939239a1adbda5458fc2d849b = $(`<div id="html_70c5dc0939239a1adbda5458fc2d849b" style="width: 100.0%; height: 100.0%;">10. Cañón Fjaðrárgljúfur</div>`)[0];
+            popup_c93ebc6d298984d1afef7cd92a50e317.setContent(html_70c5dc0939239a1adbda5458fc2d849b);
+        
+
+        marker_2f069a67dd1e98ed3bcdedc0f9dd9132.bindPopup(popup_c93ebc6d298984d1afef7cd92a50e317)
+        ;
+
+        
+    
+    
+            marker_2f069a67dd1e98ed3bcdedc0f9dd9132.bindTooltip(
+                `<div>
+                     10. Cañón Fjaðrárgljúfur
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_03739c7b51da9e4b1d9533dba2cbd883 = L.marker(
+                [63.9, -17.3],
+                {}
+            ).addTo(feature_group_95eacff8cc3a3151b20c55df9ce17bb0);
+        
+    
+            var div_icon_342852cd4af5b900a69f8564bdcb4609 = L.divIcon({"className": "empty", "html": "\u003cdiv style=\u0027font-size:12pt; background:white; border:1px solid #000; padding:2px 6px; border-radius:6px;\u0027\u003e\u003cb\u003e11\u003c/b\u003e\u003c/div\u003e"});
+            marker_03739c7b51da9e4b1d9533dba2cbd883.setIcon(div_icon_342852cd4af5b900a69f8564bdcb4609);
+        
+    
+        var popup_974ee9ae32f26121a7378311188793b1 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_62ef9450427910853306d9c16287ff75 = $(`<div id="html_62ef9450427910853306d9c16287ff75" style="width: 100.0%; height: 100.0%;">11. Skeiðarársandur (llanura glaciar)</div>`)[0];
+            popup_974ee9ae32f26121a7378311188793b1.setContent(html_62ef9450427910853306d9c16287ff75);
+        
+
+        marker_03739c7b51da9e4b1d9533dba2cbd883.bindPopup(popup_974ee9ae32f26121a7378311188793b1)
+        ;
+
+        
+    
+    
+            marker_03739c7b51da9e4b1d9533dba2cbd883.bindTooltip(
+                `<div>
+                     11. Skeiðarársandur (llanura glaciar)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_78c57f12edbb7562c4459f401252e60a = L.marker(
+                [64.017, -16.966],
+                {}
+            ).addTo(feature_group_95eacff8cc3a3151b20c55df9ce17bb0);
+        
+    
+            var div_icon_41e8883c27e56a0afca174fe32d502ad = L.divIcon({"className": "empty", "html": "\u003cdiv style=\u0027font-size:12pt; background:white; border:1px solid #000; padding:2px 6px; border-radius:6px;\u0027\u003e\u003cb\u003e12\u003c/b\u003e\u003c/div\u003e"});
+            marker_78c57f12edbb7562c4459f401252e60a.setIcon(div_icon_41e8883c27e56a0afca174fe32d502ad);
+        
+    
+        var popup_cdc9fc193dd46e3aa9ff276cdb5810e5 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_ccf77311218fd55992b3d29027fdf0c2 = $(`<div id="html_ccf77311218fd55992b3d29027fdf0c2" style="width: 100.0%; height: 100.0%;">12. Parque Nacional Vatnajökull (Skaftafell)</div>`)[0];
+            popup_cdc9fc193dd46e3aa9ff276cdb5810e5.setContent(html_ccf77311218fd55992b3d29027fdf0c2);
+        
+
+        marker_78c57f12edbb7562c4459f401252e60a.bindPopup(popup_cdc9fc193dd46e3aa9ff276cdb5810e5)
+        ;
+
+        
+    
+    
+            marker_78c57f12edbb7562c4459f401252e60a.bindTooltip(
+                `<div>
+                     12. Parque Nacional Vatnajökull (Skaftafell)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_7eac24d595e63382f83220dca34c002e = L.marker(
+                [64.048, -16.179],
+                {}
+            ).addTo(feature_group_95eacff8cc3a3151b20c55df9ce17bb0);
+        
+    
+            var div_icon_084741ebb6935d2a7412ce84db016b56 = L.divIcon({"className": "empty", "html": "\u003cdiv style=\u0027font-size:12pt; background:white; border:1px solid #000; padding:2px 6px; border-radius:6px;\u0027\u003e\u003cb\u003e13\u003c/b\u003e\u003c/div\u003e"});
+            marker_7eac24d595e63382f83220dca34c002e.setIcon(div_icon_084741ebb6935d2a7412ce84db016b56);
+        
+    
+        var popup_0aed779cb1b8f78efd29b15b0230017d = L.popup({"maxWidth": "100%"});
+
+        
+            var html_c3b6300066e1a8e515c78437b42ee1ee = $(`<div id="html_c3b6300066e1a8e515c78437b42ee1ee" style="width: 100.0%; height: 100.0%;">13. Laguna glaciar Jökulsárlón</div>`)[0];
+            popup_0aed779cb1b8f78efd29b15b0230017d.setContent(html_c3b6300066e1a8e515c78437b42ee1ee);
+        
+
+        marker_7eac24d595e63382f83220dca34c002e.bindPopup(popup_0aed779cb1b8f78efd29b15b0230017d)
+        ;
+
+        
+    
+    
+            marker_7eac24d595e63382f83220dca34c002e.bindTooltip(
+                `<div>
+                     13. Laguna glaciar Jökulsárlón
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9240be23a1d994ad60ae79edf56d1835 = L.marker(
+                [64.0444, -16.1784],
+                {}
+            ).addTo(feature_group_95eacff8cc3a3151b20c55df9ce17bb0);
+        
+    
+            var div_icon_60a37fc0406fba4d6511f1d733ceffdf = L.divIcon({"className": "empty", "html": "\u003cdiv style=\u0027font-size:12pt; background:white; border:1px solid #000; padding:2px 6px; border-radius:6px;\u0027\u003e\u003cb\u003e14\u003c/b\u003e\u003c/div\u003e"});
+            marker_9240be23a1d994ad60ae79edf56d1835.setIcon(div_icon_60a37fc0406fba4d6511f1d733ceffdf);
+        
+    
+        var popup_10c71f213cb90904fda4db16a33bb08d = L.popup({"maxWidth": "100%"});
+
+        
+            var html_ed929f2a9d751dac82a684145b773375 = $(`<div id="html_ed929f2a9d751dac82a684145b773375" style="width: 100.0%; height: 100.0%;">14. Playa Diamante (Diamond Beach)</div>`)[0];
+            popup_10c71f213cb90904fda4db16a33bb08d.setContent(html_ed929f2a9d751dac82a684145b773375);
+        
+
+        marker_9240be23a1d994ad60ae79edf56d1835.bindPopup(popup_10c71f213cb90904fda4db16a33bb08d)
+        ;
+
+        
+    
+    
+            marker_9240be23a1d994ad60ae79edf56d1835.bindTooltip(
+                `<div>
+                     14. Playa Diamante (Diamond Beach)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_08dfe8d7c3c4b745215ef1bf32d6198a = L.marker(
+                [64.2581, -15.2089],
+                {}
+            ).addTo(feature_group_95eacff8cc3a3151b20c55df9ce17bb0);
+        
+    
+            var div_icon_97e4f6df5a4c12bc75474c9a19e459ef = L.divIcon({"className": "empty", "html": "\u003cdiv style=\u0027font-size:12pt; background:white; border:1px solid #000; padding:2px 6px; border-radius:6px;\u0027\u003e\u003cb\u003e15\u003c/b\u003e\u003c/div\u003e"});
+            marker_08dfe8d7c3c4b745215ef1bf32d6198a.setIcon(div_icon_97e4f6df5a4c12bc75474c9a19e459ef);
+        
+    
+        var popup_8df7be10b22168e4ad682fc05fd52864 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_e5864420794a2b9f273a64a7b256035d = $(`<div id="html_e5864420794a2b9f273a64a7b256035d" style="width: 100.0%; height: 100.0%;">15. Höfn</div>`)[0];
+            popup_8df7be10b22168e4ad682fc05fd52864.setContent(html_e5864420794a2b9f273a64a7b256035d);
+        
+
+        marker_08dfe8d7c3c4b745215ef1bf32d6198a.bindPopup(popup_8df7be10b22168e4ad682fc05fd52864)
+        ;
+
+        
+    
+    
+            marker_08dfe8d7c3c4b745215ef1bf32d6198a.bindTooltip(
+                `<div>
+                     15. Höfn
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var poly_line_45a88af536ab57fabe07b32c94f0cf7c = L.polyline(
+                [[64.1355, -21.8954], [63.999, -21.189], [63.6156, -19.9926], [63.62, -19.987], [63.5321, -19.511], [63.524, -19.506], [63.4025, -19.1262], [63.4044, -19.0514], [63.4186, -19.006], [63.7712, -18.1726], [63.9, -17.3], [64.017, -16.966], [64.048, -16.179], [64.0444, -16.1784], [64.2581, -15.2089]],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.9, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_95eacff8cc3a3151b20c55df9ce17bb0);
+        
+    
+            var feature_group_e67a868de2dd017dc53d08111eaae78b = L.featureGroup(
+                {}
+            ).addTo(map_f89751f4e8b13293b4a3cfae92e75b42);
+        
+    
+            var circle_6007feb6ade68f8cf3c3098f3815d6ee = L.circle(
+                [63.933, -21.001],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#000000", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1800, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e67a868de2dd017dc53d08111eaae78b);
+        
+    
+            var circle_marker_d578369e3b20cb2b2678a3920a476077 = L.circleMarker(
+                [63.933, -21.001],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD700", "fillOpacity": 0.95, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e67a868de2dd017dc53d08111eaae78b);
+        
+    
+        var popup_540894caddd3097242f4bda43470ef75 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_ba51b82aa0d17ea9c92e6146ead896d6 = $(`<div id="html_ba51b82aa0d17ea9c92e6146ead896d6" style="width: 100.0%; height: 100.0%;"><b>Selfoss (servicios completos)</b><br><i>Pueblo con servicios</i></div>`)[0];
+            popup_540894caddd3097242f4bda43470ef75.setContent(html_ba51b82aa0d17ea9c92e6146ead896d6);
+        
+
+        circle_marker_d578369e3b20cb2b2678a3920a476077.bindPopup(popup_540894caddd3097242f4bda43470ef75)
+        ;
+
+        
+    
+    
+            circle_marker_d578369e3b20cb2b2678a3920a476077.bindTooltip(
+                `<div>
+                     🏠 Selfoss (servicios completos)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_1e6663d8b84a9336839953abb08b89a6 = L.circle(
+                [63.999, -21.189],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#000000", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1800, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e67a868de2dd017dc53d08111eaae78b);
+        
+    
+            var circle_marker_fbd7eb42c24b78d4c872951e45cd1551 = L.circleMarker(
+                [63.999, -21.189],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD700", "fillOpacity": 0.95, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e67a868de2dd017dc53d08111eaae78b);
+        
+    
+        var popup_345981ed8c0280b8686c5512948cdf01 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_8ef92d7105b7e4e9416ea1808d06d289 = $(`<div id="html_8ef92d7105b7e4e9416ea1808d06d289" style="width: 100.0%; height: 100.0%;"><b>Hveragerði (servicios)</b><br><i>Pueblo con servicios</i></div>`)[0];
+            popup_345981ed8c0280b8686c5512948cdf01.setContent(html_8ef92d7105b7e4e9416ea1808d06d289);
+        
+
+        circle_marker_fbd7eb42c24b78d4c872951e45cd1551.bindPopup(popup_345981ed8c0280b8686c5512948cdf01)
+        ;
+
+        
+    
+    
+            circle_marker_fbd7eb42c24b78d4c872951e45cd1551.bindTooltip(
+                `<div>
+                     🏠 Hveragerði (servicios)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_0e49a7d157bf1a1f872fa7f0bb7ac9cc = L.circle(
+                [63.754, -20.224],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#000000", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1800, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e67a868de2dd017dc53d08111eaae78b);
+        
+    
+            var circle_marker_8bd4760f3ddb8397a86b00c3dc2356d6 = L.circleMarker(
+                [63.754, -20.224],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD700", "fillOpacity": 0.95, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e67a868de2dd017dc53d08111eaae78b);
+        
+    
+        var popup_7e8d0df1117ef94bf7295e5112e3fc24 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_3c7db8af27e98d87d4194c445530925c = $(`<div id="html_3c7db8af27e98d87d4194c445530925c" style="width: 100.0%; height: 100.0%;"><b>Hvolsvöllur (servicios)</b><br><i>Pueblo con servicios</i></div>`)[0];
+            popup_7e8d0df1117ef94bf7295e5112e3fc24.setContent(html_3c7db8af27e98d87d4194c445530925c);
+        
+
+        circle_marker_8bd4760f3ddb8397a86b00c3dc2356d6.bindPopup(popup_7e8d0df1117ef94bf7295e5112e3fc24)
+        ;
+
+        
+    
+    
+            circle_marker_8bd4760f3ddb8397a86b00c3dc2356d6.bindTooltip(
+                `<div>
+                     🏠 Hvolsvöllur (servicios)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_49fad4a071329b7a646ebe72bdb8486f = L.circle(
+                [63.835, -20.396],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#000000", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1800, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e67a868de2dd017dc53d08111eaae78b);
+        
+    
+            var circle_marker_148fbe95f5d5822700c0b0e4cbd65e80 = L.circleMarker(
+                [63.835, -20.396],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD700", "fillOpacity": 0.95, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e67a868de2dd017dc53d08111eaae78b);
+        
+    
+        var popup_826b4b3026a2a24f8434bf3424f11f4c = L.popup({"maxWidth": "100%"});
+
+        
+            var html_8b6506a40a25304acc51c48e1853fd2d = $(`<div id="html_8b6506a40a25304acc51c48e1853fd2d" style="width: 100.0%; height: 100.0%;"><b>Hella (servicios)</b><br><i>Pueblo con servicios</i></div>`)[0];
+            popup_826b4b3026a2a24f8434bf3424f11f4c.setContent(html_8b6506a40a25304acc51c48e1853fd2d);
+        
+
+        circle_marker_148fbe95f5d5822700c0b0e4cbd65e80.bindPopup(popup_826b4b3026a2a24f8434bf3424f11f4c)
+        ;
+
+        
+    
+    
+            circle_marker_148fbe95f5d5822700c0b0e4cbd65e80.bindTooltip(
+                `<div>
+                     🏠 Hella (servicios)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_52ea2189826caa6b2b09a5491c49eaec = L.circle(
+                [63.4186, -19.006],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#000000", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1800, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e67a868de2dd017dc53d08111eaae78b);
+        
+    
+            var circle_marker_b337d25a714e216727dcd117b2b0f621 = L.circleMarker(
+                [63.4186, -19.006],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD700", "fillOpacity": 0.95, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e67a868de2dd017dc53d08111eaae78b);
+        
+    
+        var popup_b2e0f4e9bd9b09f17f5313d7b23e5af2 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_7c7dbc84d23c93ed71e67cbbf1167c94 = $(`<div id="html_7c7dbc84d23c93ed71e67cbbf1167c94" style="width: 100.0%; height: 100.0%;"><b>Vík í Mýrdal (servicios)</b><br><i>Pueblo con servicios</i></div>`)[0];
+            popup_b2e0f4e9bd9b09f17f5313d7b23e5af2.setContent(html_7c7dbc84d23c93ed71e67cbbf1167c94);
+        
+
+        circle_marker_b337d25a714e216727dcd117b2b0f621.bindPopup(popup_b2e0f4e9bd9b09f17f5313d7b23e5af2)
+        ;
+
+        
+    
+    
+            circle_marker_b337d25a714e216727dcd117b2b0f621.bindTooltip(
+                `<div>
+                     🏠 Vík í Mýrdal (servicios)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_28fe88d88f790df59a7743886f97570b = L.circle(
+                [63.793, -18.041],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#000000", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1800, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e67a868de2dd017dc53d08111eaae78b);
+        
+    
+            var circle_marker_09a7b89931c2e4fc20c9daf2491ec316 = L.circleMarker(
+                [63.793, -18.041],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD700", "fillOpacity": 0.95, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e67a868de2dd017dc53d08111eaae78b);
+        
+    
+        var popup_43b3d693ee081aec42e3e91b2fc2446f = L.popup({"maxWidth": "100%"});
+
+        
+            var html_5a10d970ef2031e0f1b9976864bcff40 = $(`<div id="html_5a10d970ef2031e0f1b9976864bcff40" style="width: 100.0%; height: 100.0%;"><b>Kirkjubæjarklaustur (servicios)</b><br><i>Pueblo con servicios</i></div>`)[0];
+            popup_43b3d693ee081aec42e3e91b2fc2446f.setContent(html_5a10d970ef2031e0f1b9976864bcff40);
+        
+
+        circle_marker_09a7b89931c2e4fc20c9daf2491ec316.bindPopup(popup_43b3d693ee081aec42e3e91b2fc2446f)
+        ;
+
+        
+    
+    
+            circle_marker_09a7b89931c2e4fc20c9daf2491ec316.bindTooltip(
+                `<div>
+                     🏠 Kirkjubæjarklaustur (servicios)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_4d5f6293949bb9ed363f73ad7d81fa29 = L.circle(
+                [64.017, -16.966],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#000000", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1800, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e67a868de2dd017dc53d08111eaae78b);
+        
+    
+            var circle_marker_9f4aae8c3c0d12e041dba66ba33e14ce = L.circleMarker(
+                [64.017, -16.966],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD700", "fillOpacity": 0.95, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e67a868de2dd017dc53d08111eaae78b);
+        
+    
+        var popup_b592c95589ec6343d0b444855325ff46 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_2cf5aa268e4e0c7ce38d90b5fa8ef77e = $(`<div id="html_2cf5aa268e4e0c7ce38d90b5fa8ef77e" style="width: 100.0%; height: 100.0%;"><b>Skaftafell Visitor Center (servicios turísticos)</b><br><i>Pueblo con servicios</i></div>`)[0];
+            popup_b592c95589ec6343d0b444855325ff46.setContent(html_2cf5aa268e4e0c7ce38d90b5fa8ef77e);
+        
+
+        circle_marker_9f4aae8c3c0d12e041dba66ba33e14ce.bindPopup(popup_b592c95589ec6343d0b444855325ff46)
+        ;
+
+        
+    
+    
+            circle_marker_9f4aae8c3c0d12e041dba66ba33e14ce.bindTooltip(
+                `<div>
+                     🏠 Skaftafell Visitor Center (servicios turísticos)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var circle_db44e89b8fa46da62330fea12093b39c = L.circle(
+                [64.2581, -15.2089],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#000000", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1800, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e67a868de2dd017dc53d08111eaae78b);
+        
+    
+            var circle_marker_e508950818a016fbf5d15a9c209dd68d = L.circleMarker(
+                [64.2581, -15.2089],
+                {"bubblingMouseEvents": true, "color": "#000000", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#FFD700", "fillOpacity": 0.95, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 2}
+            ).addTo(feature_group_e67a868de2dd017dc53d08111eaae78b);
+        
+    
+        var popup_02f6831501a6b89707baee580d3058bc = L.popup({"maxWidth": "100%"});
+
+        
+            var html_1deebd90d41c00e89645a81c4746f283 = $(`<div id="html_1deebd90d41c00e89645a81c4746f283" style="width: 100.0%; height: 100.0%;"><b>Höfn (servicios completos)</b><br><i>Pueblo con servicios</i></div>`)[0];
+            popup_02f6831501a6b89707baee580d3058bc.setContent(html_1deebd90d41c00e89645a81c4746f283);
+        
+
+        circle_marker_e508950818a016fbf5d15a9c209dd68d.bindPopup(popup_02f6831501a6b89707baee580d3058bc)
+        ;
+
+        
+    
+    
+            circle_marker_e508950818a016fbf5d15a9c209dd68d.bindTooltip(
+                `<div>
+                     🏠 Höfn (servicios completos)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var feature_group_04e55b578735d0d8101594b785263651 = L.featureGroup(
+                {}
+            ).addTo(map_f89751f4e8b13293b4a3cfae92e75b42);
+        
+    
+            var marker_23ce9a98f4beb53c0600c2fc475379bc = L.marker(
+                [63.933, -21.001],
+                {}
+            ).addTo(feature_group_04e55b578735d0d8101594b785263651);
+        
+    
+            var icon_471b419917d3c57a33df7dc6085cbec4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "tint", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_23ce9a98f4beb53c0600c2fc475379bc.setIcon(icon_471b419917d3c57a33df7dc6085cbec4);
+        
+    
+        var popup_9e99fdc0b52c3329381802538b2c8b19 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_167e57851c1b78a74bb45676e0bd0c63 = $(`<div id="html_167e57851c1b78a74bb45676e0bd0c63" style="width: 100.0%; height: 100.0%;">Estación de servicio - Selfoss</div>`)[0];
+            popup_9e99fdc0b52c3329381802538b2c8b19.setContent(html_167e57851c1b78a74bb45676e0bd0c63);
+        
+
+        marker_23ce9a98f4beb53c0600c2fc475379bc.bindPopup(popup_9e99fdc0b52c3329381802538b2c8b19)
+        ;
+
+        
+    
+    
+            marker_23ce9a98f4beb53c0600c2fc475379bc.bindTooltip(
+                `<div>
+                     Estación de servicio - Selfoss
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1edf3fe23d59a49077144697c81317c7 = L.marker(
+                [63.754, -20.224],
+                {}
+            ).addTo(feature_group_04e55b578735d0d8101594b785263651);
+        
+    
+            var icon_a1f8e5ade922585f0303a30024aa4e28 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "tint", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_1edf3fe23d59a49077144697c81317c7.setIcon(icon_a1f8e5ade922585f0303a30024aa4e28);
+        
+    
+        var popup_92fe06a0cbce4bd8fd086da4a93f4ef4 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_ca2b6747c4d71d5198114e8145e076e8 = $(`<div id="html_ca2b6747c4d71d5198114e8145e076e8" style="width: 100.0%; height: 100.0%;">Estación de servicio - Hvolsvöllur</div>`)[0];
+            popup_92fe06a0cbce4bd8fd086da4a93f4ef4.setContent(html_ca2b6747c4d71d5198114e8145e076e8);
+        
+
+        marker_1edf3fe23d59a49077144697c81317c7.bindPopup(popup_92fe06a0cbce4bd8fd086da4a93f4ef4)
+        ;
+
+        
+    
+    
+            marker_1edf3fe23d59a49077144697c81317c7.bindTooltip(
+                `<div>
+                     Estación de servicio - Hvolsvöllur
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_be13533ce3fff15a43658e7b315a1356 = L.marker(
+                [63.4186, -19.006],
+                {}
+            ).addTo(feature_group_04e55b578735d0d8101594b785263651);
+        
+    
+            var icon_8098bed5ec2bb34395c8101095e02249 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "tint", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_be13533ce3fff15a43658e7b315a1356.setIcon(icon_8098bed5ec2bb34395c8101095e02249);
+        
+    
+        var popup_eb97128b7e5dee43cc8b19e429c4def5 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_88779060ed087cd8d341daa2a1dfbd84 = $(`<div id="html_88779060ed087cd8d341daa2a1dfbd84" style="width: 100.0%; height: 100.0%;">Estación de servicio - Vík</div>`)[0];
+            popup_eb97128b7e5dee43cc8b19e429c4def5.setContent(html_88779060ed087cd8d341daa2a1dfbd84);
+        
+
+        marker_be13533ce3fff15a43658e7b315a1356.bindPopup(popup_eb97128b7e5dee43cc8b19e429c4def5)
+        ;
+
+        
+    
+    
+            marker_be13533ce3fff15a43658e7b315a1356.bindTooltip(
+                `<div>
+                     Estación de servicio - Vík
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6ec86c594c45096b38a48601da168d5a = L.marker(
+                [63.793, -18.041],
+                {}
+            ).addTo(feature_group_04e55b578735d0d8101594b785263651);
+        
+    
+            var icon_06b6a6167203865a66b47303dcd3635f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "tint", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_6ec86c594c45096b38a48601da168d5a.setIcon(icon_06b6a6167203865a66b47303dcd3635f);
+        
+    
+        var popup_3fd1146f186562ebe59c9e6d640b2dee = L.popup({"maxWidth": "100%"});
+
+        
+            var html_f7a6365c2c2aa8ea0a0a6e676008567c = $(`<div id="html_f7a6365c2c2aa8ea0a0a6e676008567c" style="width: 100.0%; height: 100.0%;">Estación de servicio - Kirkjubæjarklaustur</div>`)[0];
+            popup_3fd1146f186562ebe59c9e6d640b2dee.setContent(html_f7a6365c2c2aa8ea0a0a6e676008567c);
+        
+
+        marker_6ec86c594c45096b38a48601da168d5a.bindPopup(popup_3fd1146f186562ebe59c9e6d640b2dee)
+        ;
+
+        
+    
+    
+            marker_6ec86c594c45096b38a48601da168d5a.bindTooltip(
+                `<div>
+                     Estación de servicio - Kirkjubæjarklaustur
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_3569c55f4a1341b2f300cb0f3d4ca238 = L.marker(
+                [63.999, -16.815],
+                {}
+            ).addTo(feature_group_04e55b578735d0d8101594b785263651);
+        
+    
+            var icon_bacc8a432d8bba8a4ebcd3ec8ad135fa = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "tint", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_3569c55f4a1341b2f300cb0f3d4ca238.setIcon(icon_bacc8a432d8bba8a4ebcd3ec8ad135fa);
+        
+    
+        var popup_6684e2675e201e8f1976ca6dcef0271b = L.popup({"maxWidth": "100%"});
+
+        
+            var html_bafb3344be0d2d95c42f08d08415f8e0 = $(`<div id="html_bafb3344be0d2d95c42f08d08415f8e0" style="width: 100.0%; height: 100.0%;">Estación de servicio - Skaftafell/Öræfi</div>`)[0];
+            popup_6684e2675e201e8f1976ca6dcef0271b.setContent(html_bafb3344be0d2d95c42f08d08415f8e0);
+        
+
+        marker_3569c55f4a1341b2f300cb0f3d4ca238.bindPopup(popup_6684e2675e201e8f1976ca6dcef0271b)
+        ;
+
+        
+    
+    
+            marker_3569c55f4a1341b2f300cb0f3d4ca238.bindTooltip(
+                `<div>
+                     Estación de servicio - Skaftafell/Öræfi
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0e03bba09e56cfb735a10607261a84c0 = L.marker(
+                [64.2581, -15.2089],
+                {}
+            ).addTo(feature_group_04e55b578735d0d8101594b785263651);
+        
+    
+            var icon_7c6b1e860ef8336bc2d447dea1287bd0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "tint", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_0e03bba09e56cfb735a10607261a84c0.setIcon(icon_7c6b1e860ef8336bc2d447dea1287bd0);
+        
+    
+        var popup_cca0578e92c1f72fb43839a18d10c77d = L.popup({"maxWidth": "100%"});
+
+        
+            var html_ccd2eb98d91a742de2170bc190078393 = $(`<div id="html_ccd2eb98d91a742de2170bc190078393" style="width: 100.0%; height: 100.0%;">Estación de servicio - Höfn</div>`)[0];
+            popup_cca0578e92c1f72fb43839a18d10c77d.setContent(html_ccd2eb98d91a742de2170bc190078393);
+        
+
+        marker_0e03bba09e56cfb735a10607261a84c0.bindPopup(popup_cca0578e92c1f72fb43839a18d10c77d)
+        ;
+
+        
+    
+    
+            marker_0e03bba09e56cfb735a10607261a84c0.bindTooltip(
+                `<div>
+                     Estación de servicio - Höfn
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var feature_group_dc90970880584cfad070547cb1496054 = L.featureGroup(
+                {}
+            ).addTo(map_f89751f4e8b13293b4a3cfae92e75b42);
+        
+    
+            var marker_afa38a309882d5fd0c523258cd076e99 = L.marker(
+                [63.933, -21.001],
+                {}
+            ).addTo(feature_group_dc90970880584cfad070547cb1496054);
+        
+    
+            var icon_d194ec7d936d39b939d76bebf66aad65 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "shopping-cart", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_afa38a309882d5fd0c523258cd076e99.setIcon(icon_d194ec7d936d39b939d76bebf66aad65);
+        
+    
+        var popup_475ab2d73b7b61f55af302188e1f0416 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_c2bcba0073dbe0b3ba8ae012cd42d049 = $(`<div id="html_c2bcba0073dbe0b3ba8ae012cd42d049" style="width: 100.0%; height: 100.0%;">Supermercado - Selfoss</div>`)[0];
+            popup_475ab2d73b7b61f55af302188e1f0416.setContent(html_c2bcba0073dbe0b3ba8ae012cd42d049);
+        
+
+        marker_afa38a309882d5fd0c523258cd076e99.bindPopup(popup_475ab2d73b7b61f55af302188e1f0416)
+        ;
+
+        
+    
+    
+            marker_afa38a309882d5fd0c523258cd076e99.bindTooltip(
+                `<div>
+                     Supermercado - Selfoss
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_de4d824de1a638ce0a897a149b5ddc7d = L.marker(
+                [63.754, -20.224],
+                {}
+            ).addTo(feature_group_dc90970880584cfad070547cb1496054);
+        
+    
+            var icon_556a30007f8a6df57c411effc1a2e599 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "shopping-cart", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_de4d824de1a638ce0a897a149b5ddc7d.setIcon(icon_556a30007f8a6df57c411effc1a2e599);
+        
+    
+        var popup_ba20a4f11558b2a7c35713da142dff73 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_70f25a9e3d53e892e446e575f1a3aff6 = $(`<div id="html_70f25a9e3d53e892e446e575f1a3aff6" style="width: 100.0%; height: 100.0%;">Supermercado - Hvolsvöllur</div>`)[0];
+            popup_ba20a4f11558b2a7c35713da142dff73.setContent(html_70f25a9e3d53e892e446e575f1a3aff6);
+        
+
+        marker_de4d824de1a638ce0a897a149b5ddc7d.bindPopup(popup_ba20a4f11558b2a7c35713da142dff73)
+        ;
+
+        
+    
+    
+            marker_de4d824de1a638ce0a897a149b5ddc7d.bindTooltip(
+                `<div>
+                     Supermercado - Hvolsvöllur
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_2b3960ebdaa5ba01bc17b9985cd59460 = L.marker(
+                [63.4186, -19.006],
+                {}
+            ).addTo(feature_group_dc90970880584cfad070547cb1496054);
+        
+    
+            var icon_616bf66c606c30c8c589cc869b37435f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "shopping-cart", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_2b3960ebdaa5ba01bc17b9985cd59460.setIcon(icon_616bf66c606c30c8c589cc869b37435f);
+        
+    
+        var popup_7e75ba88e5af73c26da36fd40aea001b = L.popup({"maxWidth": "100%"});
+
+        
+            var html_8d1a997c6016f16588cc65934a91089e = $(`<div id="html_8d1a997c6016f16588cc65934a91089e" style="width: 100.0%; height: 100.0%;">Supermercado - Vík</div>`)[0];
+            popup_7e75ba88e5af73c26da36fd40aea001b.setContent(html_8d1a997c6016f16588cc65934a91089e);
+        
+
+        marker_2b3960ebdaa5ba01bc17b9985cd59460.bindPopup(popup_7e75ba88e5af73c26da36fd40aea001b)
+        ;
+
+        
+    
+    
+            marker_2b3960ebdaa5ba01bc17b9985cd59460.bindTooltip(
+                `<div>
+                     Supermercado - Vík
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9243ed8052e159bb4a964bc1e2f89e0c = L.marker(
+                [63.793, -18.041],
+                {}
+            ).addTo(feature_group_dc90970880584cfad070547cb1496054);
+        
+    
+            var icon_c0cf618f312ba2e4305eb6118425e2d8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "shopping-cart", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_9243ed8052e159bb4a964bc1e2f89e0c.setIcon(icon_c0cf618f312ba2e4305eb6118425e2d8);
+        
+    
+        var popup_7b0bd8b69127629e2338eedf107d68c3 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_c62694f57fe545fbe2482616d239ff77 = $(`<div id="html_c62694f57fe545fbe2482616d239ff77" style="width: 100.0%; height: 100.0%;">Supermercado - Kirkjubæjarklaustur</div>`)[0];
+            popup_7b0bd8b69127629e2338eedf107d68c3.setContent(html_c62694f57fe545fbe2482616d239ff77);
+        
+
+        marker_9243ed8052e159bb4a964bc1e2f89e0c.bindPopup(popup_7b0bd8b69127629e2338eedf107d68c3)
+        ;
+
+        
+    
+    
+            marker_9243ed8052e159bb4a964bc1e2f89e0c.bindTooltip(
+                `<div>
+                     Supermercado - Kirkjubæjarklaustur
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_55cb7b3bd105bb876ec182ece5e8b1d1 = L.marker(
+                [64.2581, -15.2089],
+                {}
+            ).addTo(feature_group_dc90970880584cfad070547cb1496054);
+        
+    
+            var icon_c1b3312eb91744900dd0f3546954f2c3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "shopping-cart", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_55cb7b3bd105bb876ec182ece5e8b1d1.setIcon(icon_c1b3312eb91744900dd0f3546954f2c3);
+        
+    
+        var popup_3910befff96596614343541b796e9f06 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_e765e1197d1939263fe3c100962b7aae = $(`<div id="html_e765e1197d1939263fe3c100962b7aae" style="width: 100.0%; height: 100.0%;">Supermercado - Höfn</div>`)[0];
+            popup_3910befff96596614343541b796e9f06.setContent(html_e765e1197d1939263fe3c100962b7aae);
+        
+
+        marker_55cb7b3bd105bb876ec182ece5e8b1d1.bindPopup(popup_3910befff96596614343541b796e9f06)
+        ;
+
+        
+    
+    
+            marker_55cb7b3bd105bb876ec182ece5e8b1d1.bindTooltip(
+                `<div>
+                     Supermercado - Höfn
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var feature_group_06fc6bc81b6846af0a472b0ad8677a61 = L.featureGroup(
+                {}
+            ).addTo(map_f89751f4e8b13293b4a3cfae92e75b42);
+        
+    
+            var marker_006606f34c72fdfca90da68d2a8d972e = L.marker(
+                [63.999, -21.189],
+                {}
+            ).addTo(feature_group_06fc6bc81b6846af0a472b0ad8677a61);
+        
+    
+            var icon_38216508ff77246428785dd27a855225 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cutlery", "iconColor": "white", "markerColor": "orange", "prefix": "fa"}
+            );
+            marker_006606f34c72fdfca90da68d2a8d972e.setIcon(icon_38216508ff77246428785dd27a855225);
+        
+    
+        var popup_0a7a3b03f7d7f1d142c9210e74bbbb9e = L.popup({"maxWidth": "100%"});
+
+        
+            var html_4b5de436659c7158fa7b81c113a147d8 = $(`<div id="html_4b5de436659c7158fa7b81c113a147d8" style="width: 100.0%; height: 100.0%;">Restaurantes - Hveragerði</div>`)[0];
+            popup_0a7a3b03f7d7f1d142c9210e74bbbb9e.setContent(html_4b5de436659c7158fa7b81c113a147d8);
+        
+
+        marker_006606f34c72fdfca90da68d2a8d972e.bindPopup(popup_0a7a3b03f7d7f1d142c9210e74bbbb9e)
+        ;
+
+        
+    
+    
+            marker_006606f34c72fdfca90da68d2a8d972e.bindTooltip(
+                `<div>
+                     Restaurantes - Hveragerði
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c33e28069adcb25b7151ef2d3e111264 = L.marker(
+                [63.532, -19.511],
+                {}
+            ).addTo(feature_group_06fc6bc81b6846af0a472b0ad8677a61);
+        
+    
+            var icon_4a79b1ad0f167225bb0969ed947f0078 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cutlery", "iconColor": "white", "markerColor": "orange", "prefix": "fa"}
+            );
+            marker_c33e28069adcb25b7151ef2d3e111264.setIcon(icon_4a79b1ad0f167225bb0969ed947f0078);
+        
+    
+        var popup_5f0a9f697eeba5d1744483418633d7ba = L.popup({"maxWidth": "100%"});
+
+        
+            var html_0ee57ea1b537aa4e79299235207bfe69 = $(`<div id="html_0ee57ea1b537aa4e79299235207bfe69" style="width: 100.0%; height: 100.0%;">Restaurantes - Skógar</div>`)[0];
+            popup_5f0a9f697eeba5d1744483418633d7ba.setContent(html_0ee57ea1b537aa4e79299235207bfe69);
+        
+
+        marker_c33e28069adcb25b7151ef2d3e111264.bindPopup(popup_5f0a9f697eeba5d1744483418633d7ba)
+        ;
+
+        
+    
+    
+            marker_c33e28069adcb25b7151ef2d3e111264.bindTooltip(
+                `<div>
+                     Restaurantes - Skógar
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a877a3d402a221a29b4c172ac45d71e6 = L.marker(
+                [63.4186, -19.006],
+                {}
+            ).addTo(feature_group_06fc6bc81b6846af0a472b0ad8677a61);
+        
+    
+            var icon_cda15de7274d9ad2262788528f448b6a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cutlery", "iconColor": "white", "markerColor": "orange", "prefix": "fa"}
+            );
+            marker_a877a3d402a221a29b4c172ac45d71e6.setIcon(icon_cda15de7274d9ad2262788528f448b6a);
+        
+    
+        var popup_bfce882b97447ea03de41a7f56c34dc8 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_7561586da7aff1fb844920b14c87e15d = $(`<div id="html_7561586da7aff1fb844920b14c87e15d" style="width: 100.0%; height: 100.0%;">Restaurantes - Vík</div>`)[0];
+            popup_bfce882b97447ea03de41a7f56c34dc8.setContent(html_7561586da7aff1fb844920b14c87e15d);
+        
+
+        marker_a877a3d402a221a29b4c172ac45d71e6.bindPopup(popup_bfce882b97447ea03de41a7f56c34dc8)
+        ;
+
+        
+    
+    
+            marker_a877a3d402a221a29b4c172ac45d71e6.bindTooltip(
+                `<div>
+                     Restaurantes - Vík
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_639bcbcb745687bfd9ca548140016cd0 = L.marker(
+                [64.017, -16.966],
+                {}
+            ).addTo(feature_group_06fc6bc81b6846af0a472b0ad8677a61);
+        
+    
+            var icon_7046ea7427d8ee697639dc4edb9c5001 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cutlery", "iconColor": "white", "markerColor": "orange", "prefix": "fa"}
+            );
+            marker_639bcbcb745687bfd9ca548140016cd0.setIcon(icon_7046ea7427d8ee697639dc4edb9c5001);
+        
+    
+        var popup_2af0465413a76631e9d11d56ca546731 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_ecee4697cb0cc6142d9f2289fd061251 = $(`<div id="html_ecee4697cb0cc6142d9f2289fd061251" style="width: 100.0%; height: 100.0%;">Restaurantes - Skaftafell</div>`)[0];
+            popup_2af0465413a76631e9d11d56ca546731.setContent(html_ecee4697cb0cc6142d9f2289fd061251);
+        
+
+        marker_639bcbcb745687bfd9ca548140016cd0.bindPopup(popup_2af0465413a76631e9d11d56ca546731)
+        ;
+
+        
+    
+    
+            marker_639bcbcb745687bfd9ca548140016cd0.bindTooltip(
+                `<div>
+                     Restaurantes - Skaftafell
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9f8466598473a00ce67e258e0f07f79a = L.marker(
+                [64.2581, -15.2089],
+                {}
+            ).addTo(feature_group_06fc6bc81b6846af0a472b0ad8677a61);
+        
+    
+            var icon_0d79025dc0bd72470aea0f2955ca5540 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cutlery", "iconColor": "white", "markerColor": "orange", "prefix": "fa"}
+            );
+            marker_9f8466598473a00ce67e258e0f07f79a.setIcon(icon_0d79025dc0bd72470aea0f2955ca5540);
+        
+    
+        var popup_3f8773eeb7ef145b1540abad729e9486 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_d0bdfd271de6152f76bc3617077e9f4d = $(`<div id="html_d0bdfd271de6152f76bc3617077e9f4d" style="width: 100.0%; height: 100.0%;">Restaurantes - Höfn</div>`)[0];
+            popup_3f8773eeb7ef145b1540abad729e9486.setContent(html_d0bdfd271de6152f76bc3617077e9f4d);
+        
+
+        marker_9f8466598473a00ce67e258e0f07f79a.bindPopup(popup_3f8773eeb7ef145b1540abad729e9486)
+        ;
+
+        
+    
+    
+            marker_9f8466598473a00ce67e258e0f07f79a.bindTooltip(
+                `<div>
+                     Restaurantes - Höfn
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var feature_group_504cbeda3804a9d8e4828a98b1dffaf5 = L.featureGroup(
+                {}
+            ).addTo(map_f89751f4e8b13293b4a3cfae92e75b42);
+        
+    
+            var marker_f2ef58425ca3008290f21dbaea5da02a = L.marker(
+                [63.917, -22.066],
+                {}
+            ).addTo(feature_group_504cbeda3804a9d8e4828a98b1dffaf5);
+        
+    
+            var icon_75030461470f18f7f0a62708289830f1 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "tint", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_f2ef58425ca3008290f21dbaea5da02a.setIcon(icon_75030461470f18f7f0a62708289830f1);
+        
+    
+        var popup_a54936535a32c43cd933b065d661a67a = L.popup({"maxWidth": "100%"});
+
+        
+            var html_24aa80f43fbc46cfb61427c6aea77624 = $(`<div id="html_24aa80f43fbc46cfb61427c6aea77624" style="width: 100.0%; height: 100.0%;">Kleifarvatn (cerca de Reikiavik)</div>`)[0];
+            popup_a54936535a32c43cd933b065d661a67a.setContent(html_24aa80f43fbc46cfb61427c6aea77624);
+        
+
+        marker_f2ef58425ca3008290f21dbaea5da02a.bindPopup(popup_a54936535a32c43cd933b065d661a67a)
+        ;
+
+        
+    
+    
+            marker_f2ef58425ca3008290f21dbaea5da02a.bindTooltip(
+                `<div>
+                     Kleifarvatn (cerca de Reikiavik)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_25df778cfafa4a57246a06f016e7afb3 = L.marker(
+                [64.255, -21.133],
+                {}
+            ).addTo(feature_group_504cbeda3804a9d8e4828a98b1dffaf5);
+        
+    
+            var icon_11867570b453f2aa32c59d614f4be241 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "tint", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_25df778cfafa4a57246a06f016e7afb3.setIcon(icon_11867570b453f2aa32c59d614f4be241);
+        
+    
+        var popup_b312e7c732259f07a21a2b4cfd164a8f = L.popup({"maxWidth": "100%"});
+
+        
+            var html_90ec26d5ac2d5e5215a2a24b1f733a49 = $(`<div id="html_90ec26d5ac2d5e5215a2a24b1f733a49" style="width: 100.0%; height: 100.0%;">Þingvallavatn (Thingvellir)</div>`)[0];
+            popup_b312e7c732259f07a21a2b4cfd164a8f.setContent(html_90ec26d5ac2d5e5215a2a24b1f733a49);
+        
+
+        marker_25df778cfafa4a57246a06f016e7afb3.bindPopup(popup_b312e7c732259f07a21a2b4cfd164a8f)
+        ;
+
+        
+    
+    
+            marker_25df778cfafa4a57246a06f016e7afb3.bindTooltip(
+                `<div>
+                     Þingvallavatn (Thingvellir)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_27017577860b160f13ac2aa03bda6e7c = L.marker(
+                [64.033, -19.067],
+                {}
+            ).addTo(feature_group_504cbeda3804a9d8e4828a98b1dffaf5);
+        
+    
+            var icon_3bf507ff164d3c285a8a74dead07576f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "tint", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_27017577860b160f13ac2aa03bda6e7c.setIcon(icon_3bf507ff164d3c285a8a74dead07576f);
+        
+    
+        var popup_c1d1ac7270472de20202207a4880e805 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_faec52947c8f9b0ff870a48b562729a4 = $(`<div id="html_faec52947c8f9b0ff870a48b562729a4" style="width: 100.0%; height: 100.0%;">Frostastaðavatn (Landmannalaugar)</div>`)[0];
+            popup_c1d1ac7270472de20202207a4880e805.setContent(html_faec52947c8f9b0ff870a48b562729a4);
+        
+
+        marker_27017577860b160f13ac2aa03bda6e7c.bindPopup(popup_c1d1ac7270472de20202207a4880e805)
+        ;
+
+        
+    
+    
+            marker_27017577860b160f13ac2aa03bda6e7c.bindTooltip(
+                `<div>
+                     Frostastaðavatn (Landmannalaugar)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_3ae52ee6b6bbf90df3ce14af94b70cbe = L.marker(
+                [64.0156, -16.3715],
+                {}
+            ).addTo(feature_group_504cbeda3804a9d8e4828a98b1dffaf5);
+        
+    
+            var icon_6d2eb5bd46d68b5f53535966b89e8b0e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "tint", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_3ae52ee6b6bbf90df3ce14af94b70cbe.setIcon(icon_6d2eb5bd46d68b5f53535966b89e8b0e);
+        
+    
+        var popup_6e6d2c7c8ddad8adab706d16e1bbff4c = L.popup({"maxWidth": "100%"});
+
+        
+            var html_1e9e8422ac7477eb15712ecde4ccf6ea = $(`<div id="html_1e9e8422ac7477eb15712ecde4ccf6ea" style="width: 100.0%; height: 100.0%;">Fjallsárlón (laguna glaciar)</div>`)[0];
+            popup_6e6d2c7c8ddad8adab706d16e1bbff4c.setContent(html_1e9e8422ac7477eb15712ecde4ccf6ea);
+        
+
+        marker_3ae52ee6b6bbf90df3ce14af94b70cbe.bindPopup(popup_6e6d2c7c8ddad8adab706d16e1bbff4c)
+        ;
+
+        
+    
+    
+            marker_3ae52ee6b6bbf90df3ce14af94b70cbe.bindTooltip(
+                `<div>
+                     Fjallsárlón (laguna glaciar)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var feature_group_de0a3761b1a32e5f5c53bf13079d0738 = L.featureGroup(
+                {}
+            ).addTo(map_f89751f4e8b13293b4a3cfae92e75b42);
+        
+    
+            var marker_4acaa0f707cedfda5f0346ef1fb74606 = L.marker(
+                [63.5306, -19.3636],
+                {}
+            ).addTo(feature_group_de0a3761b1a32e5f5c53bf13079d0738);
+        
+    
+            var icon_da0f278a1c4721bfde8b1945b9685d43 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_4acaa0f707cedfda5f0346ef1fb74606.setIcon(icon_da0f278a1c4721bfde8b1945b9685d43);
+        
+    
+        var popup_9b5363622a6c23590278dab6a68d1978 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_9df89460d8e17ac65f953f3147f70bcb = $(`<div id="html_9df89460d8e17ac65f953f3147f70bcb" style="width: 100.0%; height: 100.0%;">Sólheimajökull (glaciar)</div>`)[0];
+            popup_9b5363622a6c23590278dab6a68d1978.setContent(html_9df89460d8e17ac65f953f3147f70bcb);
+        
+
+        marker_4acaa0f707cedfda5f0346ef1fb74606.bindPopup(popup_9b5363622a6c23590278dab6a68d1978)
+        ;
+
+        
+    
+    
+            marker_4acaa0f707cedfda5f0346ef1fb74606.bindTooltip(
+                `<div>
+                     Sólheimajökull (glaciar)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_95f80123b580a1b1b4c426a8682bf21a = L.marker(
+                [63.4911, -19.3634],
+                {}
+            ).addTo(feature_group_de0a3761b1a32e5f5c53bf13079d0738);
+        
+    
+            var icon_9f4510ffe401297cdb3a347876b6ba3d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_95f80123b580a1b1b4c426a8682bf21a.setIcon(icon_9f4510ffe401297cdb3a347876b6ba3d);
+        
+    
+        var popup_665cf071726ef89f8bd77a1e6ac33a5f = L.popup({"maxWidth": "100%"});
+
+        
+            var html_dcaab47ecbb994f8abfda89eb60a36a5 = $(`<div id="html_dcaab47ecbb994f8abfda89eb60a36a5" style="width: 100.0%; height: 100.0%;">Avión DC-3 en Sólheimasandur</div>`)[0];
+            popup_665cf071726ef89f8bd77a1e6ac33a5f.setContent(html_dcaab47ecbb994f8abfda89eb60a36a5);
+        
+
+        marker_95f80123b580a1b1b4c426a8682bf21a.bindPopup(popup_665cf071726ef89f8bd77a1e6ac33a5f)
+        ;
+
+        
+    
+    
+            marker_95f80123b580a1b1b4c426a8682bf21a.bindTooltip(
+                `<div>
+                     Avión DC-3 en Sólheimasandur
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_3bb9a5f48a98a4ad67d85fffe5499926 = L.marker(
+                [63.3775, -18.6964],
+                {}
+            ).addTo(feature_group_de0a3761b1a32e5f5c53bf13079d0738);
+        
+    
+            var icon_efa85b668f6881b936fa1f9838852235 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_3bb9a5f48a98a4ad67d85fffe5499926.setIcon(icon_efa85b668f6881b936fa1f9838852235);
+        
+    
+        var popup_e5f4ee42aeab1214ae3066199c81a551 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_553e90110a93c9a85407c2ed61a24a0f = $(`<div id="html_553e90110a93c9a85407c2ed61a24a0f" style="width: 100.0%; height: 100.0%;">Hjörleifshöfði (mirador)</div>`)[0];
+            popup_e5f4ee42aeab1214ae3066199c81a551.setContent(html_553e90110a93c9a85407c2ed61a24a0f);
+        
+
+        marker_3bb9a5f48a98a4ad67d85fffe5499926.bindPopup(popup_e5f4ee42aeab1214ae3066199c81a551)
+        ;
+
+        
+    
+    
+            marker_3bb9a5f48a98a4ad67d85fffe5499926.bindTooltip(
+                `<div>
+                     Hjörleifshöfði (mirador)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c7fd155d03f472fb3d911c87fb96ade0 = L.marker(
+                [64.023, -16.975],
+                {}
+            ).addTo(feature_group_de0a3761b1a32e5f5c53bf13079d0738);
+        
+    
+            var icon_bf5068fbb543c972319911cbf574e91d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_c7fd155d03f472fb3d911c87fb96ade0.setIcon(icon_bf5068fbb543c972319911cbf574e91d);
+        
+    
+        var popup_dcdbc031e5566e9848d23795b5929e92 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_e9a559ccb9723b8f04b29e6b651e3809 = $(`<div id="html_e9a559ccb9723b8f04b29e6b651e3809" style="width: 100.0%; height: 100.0%;">Svartifoss (cascada en Skaftafell)</div>`)[0];
+            popup_dcdbc031e5566e9848d23795b5929e92.setContent(html_e9a559ccb9723b8f04b29e6b651e3809);
+        
+
+        marker_c7fd155d03f472fb3d911c87fb96ade0.bindPopup(popup_dcdbc031e5566e9848d23795b5929e92)
+        ;
+
+        
+    
+    
+            marker_c7fd155d03f472fb3d911c87fb96ade0.bindTooltip(
+                `<div>
+                     Svartifoss (cascada en Skaftafell)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_943e4a4aa88c1f3d210975d5d21b1a32 = L.marker(
+                [65.259, -14.0101],
+                {}
+            ).addTo(feature_group_de0a3761b1a32e5f5c53bf13079d0738);
+        
+    
+            var icon_e77ff95b5b783055dfc09241bff84e2e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_943e4a4aa88c1f3d210975d5d21b1a32.setIcon(icon_e77ff95b5b783055dfc09241bff84e2e);
+        
+    
+        var popup_ee76e0bc97b46780b88666d6fe76adc8 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_5e93f245801d8b367c9e589c6b8099fb = $(`<div id="html_5e93f245801d8b367c9e589c6b8099fb" style="width: 100.0%; height: 100.0%;">Seyðisfjörður (fiordo y pueblo)</div>`)[0];
+            popup_ee76e0bc97b46780b88666d6fe76adc8.setContent(html_5e93f245801d8b367c9e589c6b8099fb);
+        
+
+        marker_943e4a4aa88c1f3d210975d5d21b1a32.bindPopup(popup_ee76e0bc97b46780b88666d6fe76adc8)
+        ;
+
+        
+    
+    
+            marker_943e4a4aa88c1f3d210975d5d21b1a32.bindTooltip(
+                `<div>
+                     Seyðisfjörður (fiordo y pueblo)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_eacd2da5ccbe2c7de53e47f8697ba4eb = L.marker(
+                [65.1635, -15.3073],
+                {}
+            ).addTo(feature_group_de0a3761b1a32e5f5c53bf13079d0738);
+        
+    
+            var icon_f7ac914be909f747af8c6b9bf211d5e8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_eacd2da5ccbe2c7de53e47f8697ba4eb.setIcon(icon_f7ac914be909f747af8c6b9bf211d5e8);
+        
+    
+        var popup_9ae58899ebd02e0878b33a90f966d649 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_eb2a9168532f7d767df0b0d59e00fd5c = $(`<div id="html_eb2a9168532f7d767df0b0d59e00fd5c" style="width: 100.0%; height: 100.0%;">Stuðlagil (cañón de columnas)</div>`)[0];
+            popup_9ae58899ebd02e0878b33a90f966d649.setContent(html_eb2a9168532f7d767df0b0d59e00fd5c);
+        
+
+        marker_eacd2da5ccbe2c7de53e47f8697ba4eb.bindPopup(popup_9ae58899ebd02e0878b33a90f966d649)
+        ;
+
+        
+    
+    
+            marker_eacd2da5ccbe2c7de53e47f8697ba4eb.bindTooltip(
+                `<div>
+                     Stuðlagil (cañón de columnas)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c08a32d3382e66225cc476282993d495 = L.marker(
+                [64.7626, -23.6275],
+                {}
+            ).addTo(feature_group_de0a3761b1a32e5f5c53bf13079d0738);
+        
+    
+            var icon_88bc2f873823b82b41a63ac16a3add91 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "star", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_c08a32d3382e66225cc476282993d495.setIcon(icon_88bc2f873823b82b41a63ac16a3add91);
+        
+    
+        var popup_7a0ec1d9a01242c95d8308f03f65caef = L.popup({"maxWidth": "100%"});
+
+        
+            var html_b12e76abfd20e912debc2fe29c157d8b = $(`<div id="html_b12e76abfd20e912debc2fe29c157d8b" style="width: 100.0%; height: 100.0%;">Stone Bridge (Arnarstapi)</div>`)[0];
+            popup_7a0ec1d9a01242c95d8308f03f65caef.setContent(html_b12e76abfd20e912debc2fe29c157d8b);
+        
+
+        marker_c08a32d3382e66225cc476282993d495.bindPopup(popup_7a0ec1d9a01242c95d8308f03f65caef)
+        ;
+
+        
+    
+    
+            marker_c08a32d3382e66225cc476282993d495.bindTooltip(
+                `<div>
+                     Stone Bridge (Arnarstapi)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var feature_group_21baf82b932840d1134d84ab29d2135d = L.featureGroup(
+                {}
+            ).addTo(map_f89751f4e8b13293b4a3cfae92e75b42);
+        
+    
+            var marker_85f6ba351f2727f84413f8ae7c7c03b6 = L.marker(
+                [64.041, -20.885],
+                {}
+            ).addTo(feature_group_21baf82b932840d1134d84ab29d2135d);
+        
+    
+            var icon_efd319028f0ef08aea86d683b85394d5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "tree-conifer", "iconColor": "white", "markerColor": "darkgreen", "prefix": "glyphicon"}
+            );
+            marker_85f6ba351f2727f84413f8ae7c7c03b6.setIcon(icon_efd319028f0ef08aea86d683b85394d5);
+        
+    
+        var popup_4977b5c49454fd300d072c99fff2ba94 = L.popup({"maxWidth": 350});
+
+        
+            var html_44a81d58d4cf70b926bd6b2c1dcbc681 = $(`<div id="html_44a81d58d4cf70b926bd6b2c1dcbc681" style="width: 100.0%; height: 100.0%;">     <div style='font-size:12px'>     <b>Kerið (cráter volcánico)</b><br>     🏠 Pueblo base: Selfoss (servicios completos)<br>     📏 Distancia aprox: 13.3 km<br>     🚗 Tiempo aprox: 0h 9min<br>     📖 Cráter volcánico con lago<br>     ℹ️ Acceso fácil, estacionamiento junto al cráter     </div>     </div>`)[0];
+            popup_4977b5c49454fd300d072c99fff2ba94.setContent(html_44a81d58d4cf70b926bd6b2c1dcbc681);
+        
+
+        marker_85f6ba351f2727f84413f8ae7c7c03b6.bindPopup(popup_4977b5c49454fd300d072c99fff2ba94)
+        ;
+
+        
+    
+    
+            marker_85f6ba351f2727f84413f8ae7c7c03b6.bindTooltip(
+                `<div>
+                     Kerið (cráter volcánico)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_bf70906acb3db175e390222410f3625c = L.marker(
+                [64.041, -21.213],
+                {}
+            ).addTo(feature_group_21baf82b932840d1134d84ab29d2135d);
+        
+    
+            var icon_c3a085921bbfaa0877bd6304161e5446 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "tree-conifer", "iconColor": "white", "markerColor": "darkgreen", "prefix": "glyphicon"}
+            );
+            marker_bf70906acb3db175e390222410f3625c.setIcon(icon_c3a085921bbfaa0877bd6304161e5446);
+        
+    
+        var popup_d32285df000419ece377b17dedc019f9 = L.popup({"maxWidth": 350});
+
+        
+            var html_5c06afc26d6ed6c52fe929f4e4c241be = $(`<div id="html_5c06afc26d6ed6c52fe929f4e4c241be" style="width: 100.0%; height: 100.0%;">     <div style='font-size:12px'>     <b>Reykjadalur (aguas termales)</b><br>     🏠 Pueblo base: Hveragerði (servicios)<br>     📏 Distancia aprox: 4.8 km<br>     🚗 Tiempo aprox: 0h 3min<br>     📖 Río termal con caminata de ~3 km<br>     ℹ️ Sendero 1h-1h30     </div>     </div>`)[0];
+            popup_d32285df000419ece377b17dedc019f9.setContent(html_5c06afc26d6ed6c52fe929f4e4c241be);
+        
+
+        marker_bf70906acb3db175e390222410f3625c.bindPopup(popup_d32285df000419ece377b17dedc019f9)
+        ;
+
+        
+    
+    
+            marker_bf70906acb3db175e390222410f3625c.bindTooltip(
+                `<div>
+                     Reykjadalur (aguas termales)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_5bf5ec872fcb01d6ce026d28ea0acea4 = L.marker(
+                [64.327, -20.121],
+                {}
+            ).addTo(feature_group_21baf82b932840d1134d84ab29d2135d);
+        
+    
+            var icon_f643fc97b267fcfd2074a8dafe2dc9ec = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "tree-conifer", "iconColor": "white", "markerColor": "darkgreen", "prefix": "glyphicon"}
+            );
+            marker_5bf5ec872fcb01d6ce026d28ea0acea4.setIcon(icon_f643fc97b267fcfd2074a8dafe2dc9ec);
+        
+    
+        var popup_2ffdfedfda81b4042b9b2429be69f22d = L.popup({"maxWidth": 350});
+
+        
+            var html_45f521f6d7ff9eb0437f9619c522133c = $(`<div id="html_45f521f6d7ff9eb0437f9619c522133c" style="width: 100.0%; height: 100.0%;">     <div style='font-size:12px'>     <b>Gullfoss</b><br>     🏠 Pueblo base: Selfoss (servicios completos)<br>     📏 Distancia aprox: 61.2 km<br>     🚗 Tiempo aprox: 0h 45min<br>     📖 Cascada famosa del Golden Circle<br>     ℹ️ Acceso fácil     </div>     </div>`)[0];
+            popup_2ffdfedfda81b4042b9b2429be69f22d.setContent(html_45f521f6d7ff9eb0437f9619c522133c);
+        
+
+        marker_5bf5ec872fcb01d6ce026d28ea0acea4.bindPopup(popup_2ffdfedfda81b4042b9b2429be69f22d)
+        ;
+
+        
+    
+    
+            marker_5bf5ec872fcb01d6ce026d28ea0acea4.bindTooltip(
+                `<div>
+                     Gullfoss
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_4cef6d785f47242b301cd36f01ecd460 = L.marker(
+                [64.313, -20.302],
+                {}
+            ).addTo(feature_group_21baf82b932840d1134d84ab29d2135d);
+        
+    
+            var icon_612e5664029cf2aa578d4c5e404b3d86 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "tree-conifer", "iconColor": "white", "markerColor": "darkgreen", "prefix": "glyphicon"}
+            );
+            marker_4cef6d785f47242b301cd36f01ecd460.setIcon(icon_612e5664029cf2aa578d4c5e404b3d86);
+        
+    
+        var popup_25ed22039e3eaa4e74d6cacbbadf42e6 = L.popup({"maxWidth": 350});
+
+        
+            var html_0e9279382f99e54df63d2c1c1fc80ba9 = $(`<div id="html_0e9279382f99e54df63d2c1c1fc80ba9" style="width: 100.0%; height: 100.0%;">     <div style='font-size:12px'>     <b>Geysir</b><br>     🏠 Pueblo base: Selfoss (servicios completos)<br>     📏 Distancia aprox: 54.2 km<br>     🚗 Tiempo aprox: 0h 40min<br>     📖 Área geotérmica con géiser Strokkur<br>     ℹ️ Acceso fácil     </div>     </div>`)[0];
+            popup_25ed22039e3eaa4e74d6cacbbadf42e6.setContent(html_0e9279382f99e54df63d2c1c1fc80ba9);
+        
+
+        marker_4cef6d785f47242b301cd36f01ecd460.bindPopup(popup_25ed22039e3eaa4e74d6cacbbadf42e6)
+        ;
+
+        
+    
+    
+            marker_4cef6d785f47242b301cd36f01ecd460.bindTooltip(
+                `<div>
+                     Geysir
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c65d91e6678ed2fb47e68b4b62ebb356 = L.marker(
+                [64.255, -21.13],
+                {}
+            ).addTo(feature_group_21baf82b932840d1134d84ab29d2135d);
+        
+    
+            var icon_2a7e79088dc770ce53d16daef373c152 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "tree-conifer", "iconColor": "white", "markerColor": "darkgreen", "prefix": "glyphicon"}
+            );
+            marker_c65d91e6678ed2fb47e68b4b62ebb356.setIcon(icon_2a7e79088dc770ce53d16daef373c152);
+        
+    
+        var popup_aa9f4ed75879bcf5c9c0b80ad055671b = L.popup({"maxWidth": 350});
+
+        
+            var html_150f8ad23d182335452497304e1234ab = $(`<div id="html_150f8ad23d182335452497304e1234ab" style="width: 100.0%; height: 100.0%;">     <div style='font-size:12px'>     <b>Thingvellir</b><br>     🏠 Pueblo base: Selfoss (servicios completos)<br>     📏 Distancia aprox: 36.3 km<br>     🚗 Tiempo aprox: 0h 27min<br>     📖 Parque Nacional y falla tectónica<br>     ℹ️ Acceso en carretera     </div>     </div>`)[0];
+            popup_aa9f4ed75879bcf5c9c0b80ad055671b.setContent(html_150f8ad23d182335452497304e1234ab);
+        
+
+        marker_c65d91e6678ed2fb47e68b4b62ebb356.bindPopup(popup_aa9f4ed75879bcf5c9c0b80ad055671b)
+        ;
+
+        
+    
+    
+            marker_c65d91e6678ed2fb47e68b4b62ebb356.bindTooltip(
+                `<div>
+                     Thingvellir
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a2ca5fa513f9b49c9380034a77ae6ba2 = L.marker(
+                [63.7, -19.5],
+                {}
+            ).addTo(feature_group_21baf82b932840d1134d84ab29d2135d);
+        
+    
+            var icon_204fe91bd93e6b6c7f4e6ad4df665423 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "tree-conifer", "iconColor": "white", "markerColor": "darkgreen", "prefix": "glyphicon"}
+            );
+            marker_a2ca5fa513f9b49c9380034a77ae6ba2.setIcon(icon_204fe91bd93e6b6c7f4e6ad4df665423);
+        
+    
+        var popup_7932a3e617e58f506944bb7f40d33720 = L.popup({"maxWidth": 350});
+
+        
+            var html_b7662810fb78265fbd435859892347ae = $(`<div id="html_b7662810fb78265fbd435859892347ae" style="width: 100.0%; height: 100.0%;">     <div style='font-size:12px'>     <b>Þórsmörk</b><br>     🏠 Pueblo base: Hvolsvöllur (servicios)<br>     📏 Distancia aprox: 36.1 km<br>     🚗 Tiempo aprox: 0h 27min<br>     📖 Valle glacial entre volcanes<br>     ℹ️ Acceso F-road 4x4     </div>     </div>`)[0];
+            popup_7932a3e617e58f506944bb7f40d33720.setContent(html_b7662810fb78265fbd435859892347ae);
+        
+
+        marker_a2ca5fa513f9b49c9380034a77ae6ba2.bindPopup(popup_7932a3e617e58f506944bb7f40d33720)
+        ;
+
+        
+    
+    
+            marker_a2ca5fa513f9b49c9380034a77ae6ba2.bindTooltip(
+                `<div>
+                     Þórsmörk
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d54062e23c8df18796fedba0ebb7ffa5 = L.marker(
+                [63.985, -19.713],
+                {}
+            ).addTo(feature_group_21baf82b932840d1134d84ab29d2135d);
+        
+    
+            var icon_84377de222beffdc776ee35efcaad5c2 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "tree-conifer", "iconColor": "white", "markerColor": "darkgreen", "prefix": "glyphicon"}
+            );
+            marker_d54062e23c8df18796fedba0ebb7ffa5.setIcon(icon_84377de222beffdc776ee35efcaad5c2);
+        
+    
+        var popup_fe714e0d4e11d50a5735c4dd734c1e01 = L.popup({"maxWidth": 350});
+
+        
+            var html_2a0b5d9105e014e0fc32df8699382e3c = $(`<div id="html_2a0b5d9105e014e0fc32df8699382e3c" style="width: 100.0%; height: 100.0%;">     <div style='font-size:12px'>     <b>Hekla (volcán)</b><br>     🏠 Pueblo base: Hella (servicios)<br>     📏 Distancia aprox: 37.3 km<br>     🚗 Tiempo aprox: 0h 27min<br>     📖 Volcán activo, miradores<br>     ℹ️ Acceso 4x4 en F-road     </div>     </div>`)[0];
+            popup_fe714e0d4e11d50a5735c4dd734c1e01.setContent(html_2a0b5d9105e014e0fc32df8699382e3c);
+        
+
+        marker_d54062e23c8df18796fedba0ebb7ffa5.bindPopup(popup_fe714e0d4e11d50a5735c4dd734c1e01)
+        ;
+
+        
+    
+    
+            marker_d54062e23c8df18796fedba0ebb7ffa5.bindTooltip(
+                `<div>
+                     Hekla (volcán)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d0a8c959f7609c1479bb4f7ff565e84c = L.marker(
+                [63.983, -19.067],
+                {}
+            ).addTo(feature_group_21baf82b932840d1134d84ab29d2135d);
+        
+    
+            var icon_faaa3b98f66ad7b0432c8b300c7dd1d3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "tree-conifer", "iconColor": "white", "markerColor": "darkgreen", "prefix": "glyphicon"}
+            );
+            marker_d0a8c959f7609c1479bb4f7ff565e84c.setIcon(icon_faaa3b98f66ad7b0432c8b300c7dd1d3);
+        
+    
+        var popup_ffaa6b3ac88c24b14a73a6ed83e5a5e2 = L.popup({"maxWidth": 350});
+
+        
+            var html_6b589cb8c36c6041d5e142e56379fafa = $(`<div id="html_6b589cb8c36c6041d5e142e56379fafa" style="width: 100.0%; height: 100.0%;">     <div style='font-size:12px'>     <b>Landmannalaugar</b><br>     🏠 Pueblo base: Hella (servicios)<br>     📏 Distancia aprox: 67.0 km<br>     🚗 Tiempo aprox: 0h 50min<br>     📖 Montañas de riolita, senderos<br>     ℹ️ Acceso F-road 4x4     </div>     </div>`)[0];
+            popup_ffaa6b3ac88c24b14a73a6ed83e5a5e2.setContent(html_6b589cb8c36c6041d5e142e56379fafa);
+        
+
+        marker_d0a8c959f7609c1479bb4f7ff565e84c.bindPopup(popup_ffaa6b3ac88c24b14a73a6ed83e5a5e2)
+        ;
+
+        
+    
+    
+            marker_d0a8c959f7609c1479bb4f7ff565e84c.bindTooltip(
+                `<div>
+                     Landmannalaugar
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a6cb78d9d2dd1b39da0196ba3cc0e657 = L.marker(
+                [63.531, -19.473],
+                {}
+            ).addTo(feature_group_21baf82b932840d1134d84ab29d2135d);
+        
+    
+            var icon_9a064abf107dc27da8364c685e0d9818 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "tree-conifer", "iconColor": "white", "markerColor": "darkgreen", "prefix": "glyphicon"}
+            );
+            marker_a6cb78d9d2dd1b39da0196ba3cc0e657.setIcon(icon_9a064abf107dc27da8364c685e0d9818);
+        
+    
+        var popup_2aaaf0d5a5f80af79cfbf9ff07f0785d = L.popup({"maxWidth": 350});
+
+        
+            var html_cccd650f96b4675ae974260a903e79c6 = $(`<div id="html_cccd650f96b4675ae974260a903e79c6" style="width: 100.0%; height: 100.0%;">     <div style='font-size:12px'>     <b>Kvernufoss</b><br>     🏠 Pueblo base: Skógar<br>     📏 Distancia aprox: N/D km<br>     🚗 Tiempo aprox: N/D<br>     📖 Cascada escondida detrás de la roca<br>     ℹ️ Caminata corta 15-20 min     </div>     </div>`)[0];
+            popup_2aaaf0d5a5f80af79cfbf9ff07f0785d.setContent(html_cccd650f96b4675ae974260a903e79c6);
+        
+
+        marker_a6cb78d9d2dd1b39da0196ba3cc0e657.bindPopup(popup_2aaaf0d5a5f80af79cfbf9ff07f0785d)
+        ;
+
+        
+    
+    
+            marker_a6cb78d9d2dd1b39da0196ba3cc0e657.bindTooltip(
+                `<div>
+                     Kvernufoss
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_4ac22504eaf9251b9d6eb0da40d0dc22 = L.marker(
+                [63.77, -18.2],
+                {}
+            ).addTo(feature_group_21baf82b932840d1134d84ab29d2135d);
+        
+    
+            var icon_df282c9de37b1239be1f6e94fbb12181 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "tree-conifer", "iconColor": "white", "markerColor": "darkgreen", "prefix": "glyphicon"}
+            );
+            marker_4ac22504eaf9251b9d6eb0da40d0dc22.setIcon(icon_df282c9de37b1239be1f6e94fbb12181);
+        
+    
+        var popup_f2925dbc36994099beb9d788778f9253 = L.popup({"maxWidth": 350});
+
+        
+            var html_66a242bd82ccd9407cd7d4a993f67939 = $(`<div id="html_66a242bd82ccd9407cd7d4a993f67939" style="width: 100.0%; height: 100.0%;">     <div style='font-size:12px'>     <b>Eldhraun (campo de lava)</b><br>     🏠 Pueblo base: Kirkjubæjarklaustur (servicios)<br>     📏 Distancia aprox: 8.2 km<br>     🚗 Tiempo aprox: 0h 6min<br>     📖 Campo de lava cubierto de musgo<br>     ℹ️ Acceso desde la Ring Road     </div>     </div>`)[0];
+            popup_f2925dbc36994099beb9d788778f9253.setContent(html_66a242bd82ccd9407cd7d4a993f67939);
+        
+
+        marker_4ac22504eaf9251b9d6eb0da40d0dc22.bindPopup(popup_f2925dbc36994099beb9d788778f9253)
+        ;
+
+        
+    
+    
+            marker_4ac22504eaf9251b9d6eb0da40d0dc22.bindTooltip(
+                `<div>
+                     Eldhraun (campo de lava)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_404b229a5756d7ec2b7323a66d3d1c66 = L.marker(
+                [64.016, -16.853],
+                {}
+            ).addTo(feature_group_21baf82b932840d1134d84ab29d2135d);
+        
+    
+            var icon_eb3ae9b755612d142dd558e37722fbdb = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "tree-conifer", "iconColor": "white", "markerColor": "darkgreen", "prefix": "glyphicon"}
+            );
+            marker_404b229a5756d7ec2b7323a66d3d1c66.setIcon(icon_eb3ae9b755612d142dd558e37722fbdb);
+        
+    
+        var popup_aa1cfffbec091850acf5d217474d3992 = L.popup({"maxWidth": 350});
+
+        
+            var html_dae086f334e4621a186dcb35968e7b7f = $(`<div id="html_dae086f334e4621a186dcb35968e7b7f" style="width: 100.0%; height: 100.0%;">     <div style='font-size:12px'>     <b>Skaftafellsjökull</b><br>     🏠 Pueblo base: Skaftafell Visitor Center (servicios turísticos)<br>     📏 Distancia aprox: 5.5 km<br>     🚗 Tiempo aprox: 0h 4min<br>     📖 Lengua glaciar accesible<br>     ℹ️ Caminata corta desde el centro de visitantes     </div>     </div>`)[0];
+            popup_aa1cfffbec091850acf5d217474d3992.setContent(html_dae086f334e4621a186dcb35968e7b7f);
+        
+
+        marker_404b229a5756d7ec2b7323a66d3d1c66.bindPopup(popup_aa1cfffbec091850acf5d217474d3992)
+        ;
+
+        
+    
+    
+            marker_404b229a5756d7ec2b7323a66d3d1c66.bindTooltip(
+                `<div>
+                     Skaftafellsjökull
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_3d217f6f5339fa051306e597e2aef821 = L.marker(
+                [64.023, -16.879],
+                {}
+            ).addTo(feature_group_21baf82b932840d1134d84ab29d2135d);
+        
+    
+            var icon_631d1fb6402a6d4335c073803dc7fb18 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "tree-conifer", "iconColor": "white", "markerColor": "darkgreen", "prefix": "glyphicon"}
+            );
+            marker_3d217f6f5339fa051306e597e2aef821.setIcon(icon_631d1fb6402a6d4335c073803dc7fb18);
+        
+    
+        var popup_c004e650971f6b4cfd9abc4605ec089c = L.popup({"maxWidth": 350});
+
+        
+            var html_d90a6a5def55370bf9e8f4a97980d1c7 = $(`<div id="html_d90a6a5def55370bf9e8f4a97980d1c7" style="width: 100.0%; height: 100.0%;">     <div style='font-size:12px'>     <b>Svínafellsjökull</b><br>     🏠 Pueblo base: Skaftafell Visitor Center (servicios turísticos)<br>     📏 Distancia aprox: 4.3 km<br>     🚗 Tiempo aprox: 0h 3min<br>     📖 Glaciar famoso en películas<br>     ℹ️ Carretera de grava, cuidado     </div>     </div>`)[0];
+            popup_c004e650971f6b4cfd9abc4605ec089c.setContent(html_d90a6a5def55370bf9e8f4a97980d1c7);
+        
+
+        marker_3d217f6f5339fa051306e597e2aef821.bindPopup(popup_c004e650971f6b4cfd9abc4605ec089c)
+        ;
+
+        
+    
+    
+            marker_3d217f6f5339fa051306e597e2aef821.bindTooltip(
+                `<div>
+                     Svínafellsjökull
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_46a3589a60bfa7370d38ca2a19037036 = L.marker(
+                [64.246, -14.968],
+                {}
+            ).addTo(feature_group_21baf82b932840d1134d84ab29d2135d);
+        
+    
+            var icon_db1365a1efa33eddfb51f16849a86b1c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "tree-conifer", "iconColor": "white", "markerColor": "darkgreen", "prefix": "glyphicon"}
+            );
+            marker_46a3589a60bfa7370d38ca2a19037036.setIcon(icon_db1365a1efa33eddfb51f16849a86b1c);
+        
+    
+        var popup_9204b0b5070ec0d3fb4862968b38ae2e = L.popup({"maxWidth": 350});
+
+        
+            var html_9bc43e3f7fba48434e73b0a56939111a = $(`<div id="html_9bc43e3f7fba48434e73b0a56939111a" style="width: 100.0%; height: 100.0%;">     <div style='font-size:12px'>     <b>Vestrahorn</b><br>     🏠 Pueblo base: Höfn (servicios completos)<br>     📏 Distancia aprox: 11.7 km<br>     🚗 Tiempo aprox: 0h 8min<br>     📖 Montaña icónica junto al mar<br>     ℹ️ Acceso por carretera privada (peaje)     </div>     </div>`)[0];
+            popup_9204b0b5070ec0d3fb4862968b38ae2e.setContent(html_9bc43e3f7fba48434e73b0a56939111a);
+        
+
+        marker_46a3589a60bfa7370d38ca2a19037036.bindPopup(popup_9204b0b5070ec0d3fb4862968b38ae2e)
+        ;
+
+        
+    
+    
+            marker_46a3589a60bfa7370d38ca2a19037036.bindTooltip(
+                `<div>
+                     Vestrahorn
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f13a6cfc111b9aa828a689aa79f5a568 = L.marker(
+                [64.239, -14.965],
+                {}
+            ).addTo(feature_group_21baf82b932840d1134d84ab29d2135d);
+        
+    
+            var icon_8df14d659b9988c5abd0211ee5c950bd = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "tree-conifer", "iconColor": "white", "markerColor": "darkgreen", "prefix": "glyphicon"}
+            );
+            marker_f13a6cfc111b9aa828a689aa79f5a568.setIcon(icon_8df14d659b9988c5abd0211ee5c950bd);
+        
+    
+        var popup_6e9d1911fb4735107269a330cdd11b2f = L.popup({"maxWidth": 350});
+
+        
+            var html_03ba98a781547f20f31843c0ea7fa4fa = $(`<div id="html_03ba98a781547f20f31843c0ea7fa4fa" style="width: 100.0%; height: 100.0%;">     <div style='font-size:12px'>     <b>Stokksnes (playa)</b><br>     🏠 Pueblo base: Höfn (servicios completos)<br>     📏 Distancia aprox: 12.0 km<br>     🚗 Tiempo aprox: 0h 9min<br>     📖 Playa negra con dunas<br>     ℹ️ Acceso cercano a Vestrahorn, mismo área     </div>     </div>`)[0];
+            popup_6e9d1911fb4735107269a330cdd11b2f.setContent(html_03ba98a781547f20f31843c0ea7fa4fa);
+        
+
+        marker_f13a6cfc111b9aa828a689aa79f5a568.bindPopup(popup_6e9d1911fb4735107269a330cdd11b2f)
+        ;
+
+        
+    
+    
+            marker_f13a6cfc111b9aa828a689aa79f5a568.bindTooltip(
+                `<div>
+                     Stokksnes (playa)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var layer_control_32c45bd6315c9e4d27687e39866b9d53 = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_6290f81f491b7436e9b13ec0ba32c7f3,
+                },
+                overlays :  {
+                    "Itinerario (15 puntos)" : feature_group_95eacff8cc3a3151b20c55df9ce17bb0,
+                    "Pueblos (resaltados)" : feature_group_e67a868de2dd017dc53d08111eaae78b,
+                    "Gasolineras" : feature_group_04e55b578735d0d8101594b785263651,
+                    "Supermercados" : feature_group_dc90970880584cfad070547cb1496054,
+                    "Restaurantes" : feature_group_06fc6bc81b6846af0a472b0ad8677a61,
+                    "Lagos / Lagunas" : feature_group_504cbeda3804a9d8e4828a98b1dffaf5,
+                    "Sitios tur\u00edsticos (extra)" : feature_group_de0a3761b1a32e5f5c53bf13079d0738,
+                    "\ud83c\udf0d Sitios naturales destacados" : feature_group_21baf82b932840d1134d84ab29d2135d,
+                },
+            };
+            L.control.layers(
+                layer_control_32c45bd6315c9e4d27687e39866b9d53.base_layers,
+                layer_control_32c45bd6315c9e4d27687e39866b9d53.overlays,
+                {"autoZIndex": true, "collapsed": false, "position": "topright"}
+            ).addTo(map_f89751f4e8b13293b4a3cfae92e75b42);
+        
+</script>
+</html>
